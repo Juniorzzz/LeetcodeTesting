@@ -1,35 +1,39 @@
 package main
 
 type ListNode struct {
-	val  int
+	Val  int
 	Next *ListNode
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
-	ret := 0
-	num := 1
-	for l1 != nil && l2 != nil {
-		val1 := 0
-		val2 := 0
-		if l1 != nil {
-			val1 = l1.val
-		}
-		if l2 != nil {
-			val2 = l2.val
-		}
-		ret += (val1 + val2) * num
-		num = num * 10
+	val1 := 0
+	val2 := 0
+	for l1 != nil {
+		val1 += l1.Val
 		l1 = l1.Next
+		if l1 == nil {
+			break
+		}
+		val1 = val1 * 10
+	}
+	for l2 != nil {
+		val2 += l2.Val
 		l2 = l2.Next
+		if l2 == nil {
+			break
+		}
+		val2 = val2 * 10
 	}
 
-	var result *ListNode
-	var lastNode = result
+	ret := val1 + val2
+
+	result := &ListNode{Val: 0}
+	var lastNode *ListNode
 
 	for ret != 0 {
-		val := &ListNode{val: ret % 10}
-		if result == nil {
+		val := &ListNode{Val: ret % 10}
+		if lastNode == nil {
 			result = val
 			lastNode = result
 		} else {
@@ -43,8 +47,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 
 func main() {
-	l1 := &ListNode{val: 2, Next: &ListNode{val: 4, Next: &ListNode{val: 3}}}
-	l2 := &ListNode{val: 5, Next: &ListNode{val: 6, Next: &ListNode{val: 4}}}
+	l1 := &ListNode{Val: 1, Next: &ListNode{Val: 8}}
+	l2 := &ListNode{Val: 0}
 
 	result := addTwoNumbers(l1, l2)
 
