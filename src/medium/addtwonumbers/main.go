@@ -26,13 +26,14 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			l2 = l2.Next
 		}
 
-		ret := val1 + val2 + val/10
+		val = val1 + val2 + val/10
 
 		if lastNode == nil {
-			result.Val = ret % 10
+			result.Val = val % 10
 			lastNode = result
 		} else {
-			lastNode.Next = &ListNode{Val: ret % 10}
+			lastNode.Next = &ListNode{Val: val % 10}
+			lastNode = lastNode.Next
 		}
 	}
 
@@ -40,8 +41,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 
 func main() {
-	l1 := &ListNode{Val: 1, Next: &ListNode{Val: 8}}
-	l2 := &ListNode{Val: 0}
+	l1 := &ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}}
+	l2 := &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 4}}}
 
 	result := addTwoNumbers(l1, l2)
 
