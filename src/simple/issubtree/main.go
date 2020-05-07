@@ -43,6 +43,21 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+//func isSameTree(s*TreeNode,t*TreeNode) bool{
+//	if s == nil || t == nil{
+//		return s == t
+//	}
+//	return s.Val == t.Val && isSameTree(s.Left,t.Left)&& isSameTree(s.Right,t.Right)
+//}
+//
+//func isSubtree(s *TreeNode, t *TreeNode) bool {
+//	if s == nil {
+//		return false
+//	}
+//
+//	return isSubtree(s.Left,t) || isSubtree(s.Right,t) || isSameTree(s,t)
+//}
+
 func isSameTree(s *TreeNode, t *TreeNode) bool {
 	if s == nil && t == nil {
 		return true
