@@ -18,6 +18,10 @@ func maximalSquare(matrix [][]byte) int {
 			index := 0
 			isSquare = true
 
+			if max == 0 {
+				max = 1
+			}
+
 			for {
 				index++
 
@@ -66,7 +70,8 @@ func maximalSquare(matrix [][]byte) int {
 }
 
 func main() {
-	matrix := [][]byte{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}}
+	//matrix := [][]byte{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}}
 
+	matrix := [][]byte{{'1'}}
 	println(maximalSquare(matrix))
 }
