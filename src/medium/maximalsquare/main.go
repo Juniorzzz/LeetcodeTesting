@@ -2,7 +2,11 @@ package main
 
 func maximalSquare(matrix [][]byte) int {
 
-	if len(matrix) < 2 {
+	if len(matrix) == 0 {
+		return 0
+	}
+
+	if len(matrix[0]) == 0 {
 		return 0
 	}
 
@@ -10,9 +14,7 @@ func maximalSquare(matrix [][]byte) int {
 	isSquare := false
 
 	for {
-		println(h, v)
-
-		if matrix[h][v] == 1 {
+		if matrix[h][v] == '1' {
 			index := 0
 			isSquare = true
 
@@ -25,7 +27,7 @@ func maximalSquare(matrix [][]byte) int {
 				}
 
 				for i := 0; i < index; i++ {
-					if matrix[h+index][v+i] == 0 || matrix[h+i][v+index] == 0 {
+					if matrix[h+index][v+i] == '0' || matrix[h+i][v+index] == '0' {
 						isSquare = false
 						break
 					}
@@ -35,7 +37,7 @@ func maximalSquare(matrix [][]byte) int {
 					break
 				}
 
-				if matrix[h+index][v+index] == 0 || matrix[h][v+index] == 0 || matrix[h+index][v] == 0 {
+				if matrix[h+index][v+index] == '0' || matrix[h][v+index] == '0' || matrix[h+index][v] == '0' {
 					index--
 					break
 				}
@@ -64,7 +66,7 @@ func maximalSquare(matrix [][]byte) int {
 }
 
 func main() {
-	matrix := [][]byte{{1, 1, 1, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 0, 0, 1, 0}}
+	matrix := [][]byte{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}}
 
 	println(maximalSquare(matrix))
 }
