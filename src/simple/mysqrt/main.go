@@ -19,12 +19,21 @@
 */
 package main
 
-import "math"
-
 func mySqrt(x int) int {
-	return int(math.Sqrt(float64(x)))
+	//return int(math.Sqrt(float64(x)))
+
+	ret := 0
+	for ret*ret < x {
+		ret++
+	}
+
+	if ret*ret != x {
+		ret--
+	}
+
+	return ret
 }
 
 func main() {
-
+	println(mySqrt(8))
 }
