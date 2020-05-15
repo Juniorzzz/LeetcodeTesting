@@ -16,9 +16,7 @@ package main
 func subarraySum(nums []int, k int) int {
 	count := 0
 
-	start := 0
-
-	for start < len(nums) {
+	for start := 0; start < len(nums); start++ {
 		ret := 0
 		for i := start; i < len(nums); i++ {
 			ret += nums[i]
@@ -26,8 +24,6 @@ func subarraySum(nums []int, k int) int {
 				count++
 			}
 		}
-
-		start++
 	}
 
 	return count
